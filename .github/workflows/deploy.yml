@@ -6,16 +6,16 @@ on:
       - dev
 
 env:
-  MONGO_DB_NAME: gha-demo
+  MONGODB_DB_NAME: gha-demo
 
 jobs:
   test:
     environment: testing
     runs-on: ubuntu-latest
     env:
-      MONGO_CLUSTER_ADDRESS: royalboe.bkop7jb.mongodb.net
-      MONGO_USERNAME: demo-user
-      MONGO_PASSWORD: rLf1uJmsItZ7yLxP
+      MONGODB_CLUSTER_ADDRESS: royalboe.bkop7jb.mongodb.net
+      MONGODB_USERNAME: demo-user
+      MONGODB_PASSWORD: rLf1uJmsItZ7yLxP
       PORT: 8080
     steps:
       - name: Get Code
