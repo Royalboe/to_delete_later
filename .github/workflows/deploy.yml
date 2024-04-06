@@ -6,17 +6,17 @@ on:
       - dev
 
 env:
-  MONGODB_DB_NAME: gha-demo
+  MONGODB_DB_NAME: ${{ vars.MONGODB_DB_NAME }}
 
 jobs:
   test:
     environment: testing
     runs-on: ubuntu-latest
     env:
-      MONGODB_CLUSTER_ADDRESS: royalboe.bkop7jb.mongodb.net
-      MONGODB_USERNAME: demo-user
-      MONGODB_PASSWORD: rLf1uJmsItZ7yLxP
-      PORT: 8080
+      MONGODB_CLUSTER_ADDRESS: ${{ vars.MONGODB_CLUSTER_ADDRESS }}
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
+      PORT: ${{ vars.PORT }}
     steps:
       - name: Get Code
         uses: actions/checkout@v4
@@ -42,3 +42,4 @@ jobs:
         run: |        
           echo "MONGODB_USERNAME: ${{ env.MONGODB_USERNAME }}"
           echo "MONGODB_DB_NAME: ${{ env.MONGODB_DB_NAME }}"
+          echo "MONGODB_DB_NAME: $MONGODB_DB_NAME
