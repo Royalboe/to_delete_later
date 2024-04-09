@@ -1,9 +1,9 @@
 name: Deployment
-on:
-  push:
-    branches:
-      - main
-      - dev
+on: workflow_dispatch
+  #  push:
+  # branches:
+  #   - main
+  #   - dev
 
 env:
   MONGODB_DB_NAME: ${{ vars.MONGODB_DB_NAME }}
